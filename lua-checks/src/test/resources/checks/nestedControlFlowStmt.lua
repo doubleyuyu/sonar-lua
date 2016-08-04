@@ -1,11 +1,14 @@
 function test()
-  if (true) --level 1
+  if (true) --level1
  then
-  if(true) --level 2
+  if(true) --level2
  then
-   if (true)--level 3
-  then
+   if (true)--level3
+then
+  if(false)--level4, Refactor this code to not nest more than 3
+then
   end
-    end
-      end
+     end
        end
+        end
+          end
