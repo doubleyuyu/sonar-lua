@@ -33,9 +33,6 @@ import org.sonar.sslr.parser.LexerlessGrammar;
 
 import javax.annotation.Nullable;
 
-/**
- * Note that implementation differs from AbstractNestedIfCheck - see SONARPLUGINS-1855 and SONARPLUGINS-2178
- */
 @Rule(
   key = "S134",
   name = "Control flow statements \"if\", \"for\", \"while\" should not be nested too deeply",
