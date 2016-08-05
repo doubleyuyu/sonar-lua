@@ -1,7 +1,6 @@
 /*
  * SonarQube Lua Plugin
  * Copyright (C) 2016 SonarSource and MC
- * 
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -22,7 +21,6 @@ package org.sonar.lua;
 import com.google.common.base.Charsets;
 import com.sonar.sslr.api.AstNode;
 import com.sonar.sslr.impl.Parser;
-
 import org.sonar.sslr.parser.LexerlessGrammar;
 import org.sonar.lua.api.LuaMetric;
 import org.sonar.lua.grammar.LuaGrammar;
@@ -151,15 +149,11 @@ public final class LuaAstScanner {
           LuaGrammar.DO_STATEMENT,
           LuaGrammar.WHILE_STATEMENT,
           LuaGrammar.REPEAT_STATEMENT
-          
+ 
         ).build());
-
     /* END calculation metric*/
-    
     builder.withSquidAstVisitor(new ComplexityVisitor());
     
-  
-
     /* External visitors (typically Check ones) */
     for (SquidAstVisitor<LexerlessGrammar> visitor : visitors) {
       if (visitor instanceof CharsetAwareVisitor) {
