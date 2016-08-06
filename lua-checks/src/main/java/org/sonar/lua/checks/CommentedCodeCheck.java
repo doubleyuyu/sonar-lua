@@ -1,5 +1,3 @@
-
-
 /*
  * SonarQube Lua Plugin
  * Copyright (C) 2016 SonarSource SA
@@ -30,6 +28,7 @@ import org.sonar.check.Priority;
 import org.sonar.check.Rule;
 
 import org.sonar.lua.api.LuaKeyword;
+
 import org.sonar.squidbridge.annotations.ActivatedByDefault;
 import org.sonar.squidbridge.annotations.SqaleConstantRemediation;
 import org.sonar.squidbridge.checks.SquidCheck;
