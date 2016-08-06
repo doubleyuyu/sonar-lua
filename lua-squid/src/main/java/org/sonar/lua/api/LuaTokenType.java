@@ -25,8 +25,8 @@ import com.sonar.sslr.api.TokenType;
 public enum LuaTokenType implements TokenType {
   NAME,
   NUMBER,
-  STRING,
-  LONGSTRING;
+  STRING;
+ 
   
  
   @Override
