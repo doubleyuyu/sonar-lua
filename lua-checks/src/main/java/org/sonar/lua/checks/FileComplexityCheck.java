@@ -24,6 +24,7 @@ import com.sonar.sslr.api.AstNode;
 
 import org.sonar.check.Priority;
 import org.sonar.check.Rule;
+import org.sonar.lua.checks.Tags;
 import org.sonar.check.RuleProperty;
 import org.sonar.lua.api.LuaMetric;
 import org.sonar.squidbridge.annotations.SqaleLinearWithOffsetRemediation;
