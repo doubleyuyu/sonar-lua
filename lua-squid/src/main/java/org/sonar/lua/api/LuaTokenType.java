@@ -23,6 +23,7 @@ import com.sonar.sslr.api.AstNode;
 import com.sonar.sslr.api.TokenType;
 
 public enum LuaTokenType implements TokenType {
+  NAME,
   NUMBER,
   STRING,
   LONGSTRING;
