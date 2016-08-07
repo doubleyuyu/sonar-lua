@@ -38,10 +38,14 @@ public class Lua extends AbstractLanguage {
     this.settings = settings;
   }
 
-  @Override
+@Override
+
   public String[] getFileSuffixes() {
     String[] suffixes = filterEmptyStrings(settings.getStringArray(LuaPlugin.FILE_SUFFIXES_KEY));
-    return suffixes.length == 0 ? Lua.DEFAULT_FILE_SUFFIXES : suffixes;
+    if (suffixes.length == 0) {
+      suffixes = StringUtils.split(DEFAULT_FILE_SUFFIXES, ",");
+    }
+    return suffixes;
   }
 
   private static String[] filterEmptyStrings(String[] stringArray) {
