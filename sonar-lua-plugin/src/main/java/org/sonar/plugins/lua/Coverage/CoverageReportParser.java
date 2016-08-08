@@ -34,7 +34,7 @@ import org.sonar.plugins.lua.EmptyReportException;
 
 public class CoverageReportParser {
 
-  private static final Logger LOG = LoggerFactory.getLogger(CoverageReportParserPy.class);
+  private static final Logger LOG = LoggerFactory.getLogger(CoverageReportParser.class);
 
   public void parseReport(File xmlFile, SensorContext context, final Map<InputFile, NewCoverage> coverageData) throws XMLStreamException {
     LOG.info("Parsing report '{}'", xmlFile);
