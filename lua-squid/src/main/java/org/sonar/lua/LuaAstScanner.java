@@ -53,14 +53,16 @@ public final class LuaAstScanner {
   private LuaAstScanner() {
   }
 
-  /**
+  
+   /**
    * Helper method for testing checks without having to deploy them on a Sonar instance.
    */
   public static SourceFile scanSingleFile(File file, SquidAstVisitor<LexerlessGrammar>... visitors) {
     if (!file.isFile()) {
       throw new IllegalArgumentException("File '" + file + "' not found.");
     }
-    AstScanner<LexerlessGrammar> scanner = create(new LuaConfiguration(Charsets.UTF_8), visitors);
+
+    AstScanner<LexerlessGrammar> scanner = create(new LuaConfiguration(Charsets.UTF_8), Arrays.asList(visitors));
     scanner.scanFile(file);
     Collection<SourceCode> sources = scanner.getIndex().search(new QueryByType(SourceFile.class));
     if (sources.size() != 1) {
@@ -69,15 +71,12 @@ public final class LuaAstScanner {
     return (SourceFile) sources.iterator().next();
   }
 
-  /**
-    * Create method
-    */
-  public static AstScanner<LexerlessGrammar> create(LuaConfiguration conf, SquidAstVisitor<LexerlessGrammar>... visitors) {
-    final SquidAstVisitorContextImpl<LexerlessGrammar> context = new SquidAstVisitorContextImpl<LexerlessGrammar>(new SourceProject("Lua Project"));
+  public static AstScanner<LexerlessGrammar> create(LuaConfiguration conf, List<SquidAstVisitor<LexerlessGrammar>> visitors) {
+    final SquidAstVisitorContextImpl<LexerlessGrammar> context = new SquidAstVisitorContextImpl<>(new SourceProject("Lua Project"));
     final Parser<LexerlessGrammar> parser = LuaParser.create(conf);
 
-    // create Builder to add to
-    AstScanner.Builder<LexerlessGrammar> builder = AstScanner.<LexerlessGrammar>builder(context).setBaseParser(parser);
+    AstScanner.Builder<LexerlessGrammar> builder = new ProgressAstScanner.Builder(context).setBaseParser(parser);
+
     /* Metrics */
     builder.withMetrics(LuaMetric.values()); 
     /* Files */
