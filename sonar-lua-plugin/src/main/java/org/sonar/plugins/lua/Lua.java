@@ -16,8 +16,6 @@ public class Lua extends AbstractLanguage {
   public static final String NAME = "Lua";
   public static final String KEY = "lua";
 
-  public static final String DEFAULT_FILE_SUFFIXES = "lua";
-
   private final Settings settings;
 
   
