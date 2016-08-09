@@ -31,7 +31,7 @@ public class Lua extends AbstractLanguage {
   public String[] getFileSuffixes() {
     String[] suffixes = filterEmptyStrings(settings.getStringArray(LuaPlugin.FILE_SUFFIXES_KEY));
     if (suffixes.length == 0) {
-      suffixes = StringUtils.split(DEFAULT_FILE_SUFFIXES, ",");
+      suffixes = StringUtils.split(LuaPlugin.DEFAULT_FILE_SUFFIXES, ",");
     }
     return suffixes;
   }
