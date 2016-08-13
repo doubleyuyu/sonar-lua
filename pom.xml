@@ -35,9 +35,14 @@
     </developer>
   </developers>
 
-  <modules>
+ <modules>
     <module>lua-squid</module>
+    <module>lua-checks</module>
+    <module>sonar-lua-plugin</module>
+    <module>sslr-lua-toolkit</module>
+  
   </modules>
+
 
   <scm>
     <connection>scm:git:git@github.com:SonarCommunity/sonar-lua.git</connection>
