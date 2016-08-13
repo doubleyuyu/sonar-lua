@@ -58,15 +58,28 @@
     <system>Cloudbees</system>
     <url>https://sonarplugins.ci.cloudbees.com/job/lua/</url>
   </ciManagement>
-
-  <properties>
-    <license.title>Sonar Lua</license.title>
-
+ <properties>
+    <license.title>SonarQube lua Plugin</license.title>
     <maven.test.redirectTestOutputToFile>true</maven.test.redirectTestOutputToFile>
+    <sonar.pluginClass>org.sonar.plugins.lua.LuaPlugin</sonar.pluginClass>
+    <sonar.pluginName>Lua</sonar.pluginName>
+    <gitRepositoryName>sonar-lua</gitRepositoryName>
 
-    <sonar.version>3.4.1</sonar.version>
-    <sslr.version>1.18</sslr.version>
+    <!-- versions -->
+    <commons.io.version>2.5</commons.io.version>
+    <commons.lang.version>2.6</commons.lang.version>
+    <fest-assert.version>1.4</fest-assert.version>
+    <junit.version>4.12</junit.version>
+    <logback.version>1.1.7</logback.version>
+    <maven.project.version>2.2.1</maven.project.version>
+    <mockito.version>1.10.19</mockito.version>
+    <slf4j.version>1.7.21</slf4j.version>
+    <sonar.version>5.6</sonar.version>
+    <sonar.orchestrator.version>3.12</sonar.orchestrator.version>
+    <sslr.version>1.21</sslr.version>
+    <sslr.squid.bridge.version>2.6.1</sslr.squid.bridge.version>
   </properties>
+ 
 
   <dependencyManagement>
     <dependencies>
