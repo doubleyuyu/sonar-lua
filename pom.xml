@@ -3,15 +3,16 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>org.sonarsource.parent</groupId>
+    <groupId>org.codehaus.sonar-plugins</groupId>
     <artifactId>parent</artifactId>
-    <version>36</version>
+    <version>18</version>
   </parent>
 
-  <groupId>org.sonarsource.parent</groupId>
+  <groupId>org.codehaus.sonar-plugins.lua</groupId>
   <artifactId>lua</artifactId>
   <version>0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
+
 
   <name>Sonar Lua</name>
   <inceptionYear>2013</inceptionYear>
@@ -33,6 +34,10 @@
       <name>Evgeny Mandrikov</name>
       <organization>SonarSource</organization>
     </developer>
+     <developer>
+      <id>fatiahmadi</id>
+      <name>Fati Ahmadi</name>
+  </developer>
   </developers>
 
  <modules>
@@ -52,7 +57,7 @@
   </scm>
   <issueManagement>
     <system>JIRA</system>
-    <url>http://jira.codehaus.org/browse/SONARPLUGINS</url>
+    <url>http://jira.codehaus.org/browse/SONARLUA</url>
   </issueManagement>
   <ciManagement>
     <system>Cloudbees</system>
@@ -66,131 +71,103 @@
     <gitRepositoryName>sonar-lua</gitRepositoryName>
 
     <!-- versions -->
-    <commons.io.version>2.5</commons.io.version>
-    <commons.lang.version>2.6</commons.lang.version>
-    <fest-assert.version>1.4</fest-assert.version>
-    <junit.version>4.12</junit.version>
-    <logback.version>1.1.7</logback.version>
-    <maven.project.version>2.2.1</maven.project.version>
-    <mockito.version>1.10.19</mockito.version>
-    <slf4j.version>1.7.21</slf4j.version>
     <sonar.version>5.6</sonar.version>
-    <sonar.orchestrator.version>3.12</sonar.orchestrator.version>
     <sslr.version>1.21</sslr.version>
-    <sslr.squid.bridge.version>2.6.1</sslr.squid.bridge.version>
   </properties>
  
-
-  
-       <dependencyManagement>
+  <dependencyManagement>
     <dependencies>
-      <!-- compile dependencies -->
       <dependency>
-        <groupId>org.sonarsource.sslr</groupId>
-        <artifactId>sslr-core</artifactId>
-        <version>${sslr.version}</version>
-        <exclusions>
-          <exclusion>
-            <groupId>cglib</groupId>
-            <artifactId>cglib-nodep</artifactId>
-          </exclusion>
-        </exclusions>
+        <groupId>org.codehaus.sonar</groupId>
+        <artifactId>sonar-plugin-api</artifactId>
+        <version>${sonar.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.sonarsource.sslr</groupId>
+        <groupId>org.codehaus.sonar</groupId>
+        <artifactId>sonar-squid</artifactId>
+        <version>${sonar.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.codehaus.sonar</groupId>
+        <artifactId>sonar-testing-harness</artifactId>
+        <version>${sonar.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.codehaus.sonar</groupId>
+        <artifactId>sonar-channel</artifactId>
+        <version>${sonar.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.codehaus.sonar.sslr</groupId>
+        <artifactId>sslr-core</artifactId>
+        <version>${sslr.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.codehaus.sonar.sslr</groupId>
+        <artifactId>sslr-xpath</artifactId>
+        <version>${sslr.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.codehaus.sonar.sslr</groupId>
         <artifactId>sslr-toolkit</artifactId>
         <version>${sslr.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.sonarsource.sslr-squid-bridge</groupId>
-        <artifactId>sslr-squid-bridge</artifactId>
-        <version>${sslr.squid.bridge.version}</version>
-        <exclusions>
-          <exclusion>
-            <groupId>org.codehaus.sonar</groupId>
-            <artifactId>sonar-plugin-api</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.codehaus.sonar.sslr</groupId>
-            <artifactId>sslr-core</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.picocontainer</groupId>
-            <artifactId>picocontainer</artifactId>
-          </exclusion>
-        </exclusions>
-      </dependency>
-      <dependency>
-        <groupId>org.sonarsource.orchestrator</groupId>
-        <artifactId>sonar-orchestrator</artifactId>
-        <version>${sonar.orchestrator.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>commons-lang</groupId>
-        <artifactId>commons-lang</artifactId>
-        <version>${commons.lang.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>commons-io</groupId>
-        <artifactId>commons-io</artifactId>
-        <version>${commons.io.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-api</artifactId>
-        <version>${slf4j.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>ch.qos.logback</groupId>
-        <artifactId>logback-classic</artifactId>
-        <version>${logback.version}</version>
-      </dependency>
-
-      <!-- test dependencies -->
-      <dependency>
-        <groupId>org.sonarsource.sonarqube</groupId>
-        <artifactId>sonar-testing-harness</artifactId>
-        <version>${sonar.version}</version>
-        <scope>test</scope>
-      </dependency>
-      <dependency>
-        <groupId>org.sonarsource.sslr</groupId>
+        <groupId>org.codehaus.sonar.sslr</groupId>
         <artifactId>sslr-testing-harness</artifactId>
         <version>${sslr.version}</version>
-        <scope>test</scope>
       </dependency>
+      <dependency>
+        <groupId>org.codehaus.sonar.sslr-squid-bridge</groupId>
+        <artifactId>sslr-squid-bridge</artifactId>
+        <version>2.4</version>
+      </dependency>
+
       <dependency>
         <groupId>junit</groupId>
         <artifactId>junit</artifactId>
-        <version>${junit.version}</version>
-        <scope>test</scope>
-      </dependency>
-      <dependency>
-        <groupId>org.easytesting</groupId>
-        <artifactId>fest-assert</artifactId>
-        <version>${fest-assert.version}</version>
-        <scope>test</scope>
+        <version>4.10</version>
       </dependency>
       <dependency>
         <groupId>org.mockito</groupId>
         <artifactId>mockito-all</artifactId>
-        <version>${mockito.version}</version>
-        <scope>test</scope>
+        <version>1.9.0</version>
       </dependency>
       <dependency>
-        <groupId>org.apache.maven</groupId>
-        <artifactId>maven-project</artifactId>
-        <version>${maven.project.version}</version>
-        <scope>test</scope>
+        <groupId>org.hamcrest</groupId>
+        <artifactId>hamcrest-all</artifactId>
+        <version>1.1</version>
       </dependency>
+      <dependency>
+        <groupId>org.easytesting</groupId>
+        <artifactId>fest-assert</artifactId>
+        <version>1.4</version>
+      </dependency>
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>1.5.6</version>
+      </dependency>
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>jcl-over-slf4j</artifactId>
+        <version>1.5.6</version>
+      </dependency>
+      <dependency>
+        <groupId>ch.qos.logback</groupId>
+        <artifactId>logback-classic</artifactId>
+        <version>0.9.15</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 
-      <!-- provided dependencies -->
-      <dependency>
-        <groupId>org.sonarsource.sonarqube</groupId>
-        <artifactId>sonar-plugin-api</artifactId>
-        <version>${sonar.version}</version>
-        <scope>provided</scope>
-      </dependency>
+</project>
+
+
+  
+
+     
 
     </dependencies>
   </dependencyManagement>
