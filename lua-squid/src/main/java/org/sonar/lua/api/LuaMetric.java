@@ -1,4 +1,3 @@
-
 /*
  * SonarQube CLua Plugin
  * Copyright (C) 2016 SonarSource and MC
@@ -19,7 +18,6 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02
  */
 package org.sonar.lua.api;
-
 
 import org.sonar.squidbridge.measures.CalculatedMetricFormula;
 import org.sonar.squidbridge.measures.MetricDef;
