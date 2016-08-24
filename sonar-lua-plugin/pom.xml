@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>org.codehaus.sonar-plugins.lua</groupId>
+    <groupId>org.sonarsource.lua</groupId>
     <artifactId>lua</artifactId>
     <version>0.1-SNAPSHOT</version>
   </parent>
@@ -13,7 +13,7 @@
   <packaging>sonar-plugin</packaging>
 
   <name>Lua :: Sonar Plugin</name>
-  <description>Enables analysis of Luaprojects.</description>
+  <description>Enables scanning for Lua projects.</description>
   <url>http://docs.codehaus.org/display/SONAR/Lua+Plugin</url>
 
   <scm>
@@ -42,13 +42,13 @@
     </dependency>
 
     <dependency>
-      <groupId>org.codehaus.sonar</groupId>
+      <groupId>org.sonarsource.sonarqube</groupId>
       <artifactId>sonar-plugin-api</artifactId>
       <scope>provided</scope>
     </dependency>
 
     <dependency>
-      <groupId>org.codehaus.sonar</groupId>
+      <groupId>org.sonarsource.sonarqube</groupId>
       <artifactId>sonar-testing-harness</artifactId>
       <scope>test</scope>
     </dependency>
