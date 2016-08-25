@@ -1,6 +1,5 @@
 
-/*
- * SonarQube Lua Plugin
+/* SonarQube Lua Plugin
  * Copyright (C) 2016 SonarSource SA
  * mailto:contact AT sonarsource DOT com
  *
