@@ -10,7 +10,7 @@
 
   <artifactId>lua-checks</artifactId>
 
-  <name>Lua :: Checks</name>
+  <name>Sonar Lua :: Checks</name>
 
   <dependencies>
     <dependency>
