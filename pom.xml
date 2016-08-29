@@ -83,12 +83,12 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
     <dependencies>
       <dependency>
         <groupId>${project.groupId}</groupId>
-        <artifactId>flex-squid</artifactId>
+        <artifactId>lua-squid</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>${project.groupId}</groupId>
-        <artifactId>flex-checks</artifactId>
+        <artifactId>lua-checks</artifactId>
         <version>${project.version}</version>
       </dependency>
 
