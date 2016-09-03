@@ -21,7 +21,7 @@
 
 package org.sonar.lua;
 
-import org.sonar.lua.api.SquidConfiguration;
+import org.sonar.squidbridge.api.SquidConfiguration;
 
 import java.nio.charset.Charset;
 
